@@ -1,10 +1,10 @@
-package day3;
+package lahtinen.day3;
 
-public class Claim {
-    public final String id;
-    public final int xPos, yPos, width, height;
+class Claim {
+    final String id;
+    final int xPos, yPos, width, height;
 
-    public Claim(String claim) {
+    Claim(String claim) {
         var claimParts = claim.split(" ");
         var posParts = claimParts[2].replace(":", "").split(",");
         var sizeParts = claimParts[3].split("x");

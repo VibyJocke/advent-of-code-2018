@@ -1,15 +1,13 @@
-package day3;
+package lahtinen.day3;
 
-import org.apache.commons.io.FileUtils;
+import lahtinen.Utils;
 
-import java.io.File;
-import java.nio.charset.Charset;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Part1 {
     public static void main(String... args) throws Exception {
-        var claimStrings = FileUtils.readFileToString(new File("claims.txt"), Charset.defaultCharset()).split("\r\n");
+        var claimStrings = Utils.fileToStringArray("src/lahtinen/day3/input.txt");
         var claims = Stream.of(claimStrings).map(Claim::new).collect(Collectors.toList());
         var maxWidth = claims.stream().mapToInt(claim1 -> claim1.xPos + claim1.width).max().getAsInt();
         var maxHeight = claims.stream().mapToInt(claim1 -> claim1.yPos + claim1.height).max().getAsInt();
