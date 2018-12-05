@@ -11,10 +11,14 @@ import java.util.function.Predicate;
 public class Utils {
 
     public static String[] fileToStringArray(String path) throws Exception {
+        return fileToString(path).split("\r\n");
+    }
+
+    public static String fileToString(String path) throws Exception {
         return new String(
                 Files.readAllBytes(Paths.get(path)),
                 Charset.defaultCharset()
-        ).split("\r\n");
+        );
     }
 
     public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
